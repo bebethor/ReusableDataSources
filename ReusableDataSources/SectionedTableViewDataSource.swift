@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Sections {
+struct Section {
   var title: String?
  
   init(title: String?) {
@@ -18,13 +18,11 @@ struct Sections {
 
 class SectionedTableViewDataSource: NSObject {
     private let dataSources: [UITableViewDataSource]
-    var section1 = Sections(title: "Contacts")
-    var section2 = Sections(title: "Top Messages")
-    private var sections: [Sections] = []
+    private var sections: [Section] = []
     
-    init(dataSources: [UITableViewDataSource]) {
+    init(dataSources: [UITableViewDataSource], sections: [Section]) {
         self.dataSources = dataSources
-        self.sections.append(contentsOf: [section1, section2])
+        self.sections = sections
     }
 }
 

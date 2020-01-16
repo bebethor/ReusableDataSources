@@ -13,6 +13,7 @@ class DetailViewController: UIViewController {
     var recentContacts: [Contacts] = []
     var topMessages: [Message] = []
     var dataSource: SectionedTableViewDataSource?
+    var sections: [Section] = []
     
     var messages: [Message] = []
     var message1 = Message()
@@ -21,6 +22,9 @@ class DetailViewController: UIViewController {
     
     var contact1 = Contacts(name: "Manolo", mail: "Manolo@tuvieja.com")
     var contact2 = Contacts(name: "Tonino", mail: "Tonino@tuvieja.com")
+    
+    var section1 = Section(title: "Contacts")
+    var section2 = Section(title: "Top Messages")
     
     @IBOutlet weak var detailTableView: UITableView!
     
@@ -38,11 +42,12 @@ class DetailViewController: UIViewController {
         
         topMessages.append(contentsOf: [message1, message2, message3])
         recentContacts.append(contentsOf: [contact1, contact2, contact1, contact2])
+        sections.append(contentsOf: [section1, section2])
         
         let dataSource = SectionedTableViewDataSource(dataSources: [
             TableViewDataSource.make(for: recentContacts),
             TableViewDataSource.make(for: topMessages)
-        ])
+        ], sections: sections)
         
         self.dataSource = dataSource
         detailTableView.dataSource = dataSource
