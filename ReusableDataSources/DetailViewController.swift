@@ -28,7 +28,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         message1.title = "Hola"
-        message1.preview = "Hola Jose ¿Cómo estás?"
+        message1.preview = "Hola Jose ¿Cómo estás machote?"
         
         message2.title = "Comida"
         message2.preview = "Hemos quedado a comer"
